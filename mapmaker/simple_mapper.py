@@ -343,6 +343,6 @@ plt.clf()
 plt.imshow(mapset_raw.maps[0].map)
 plt.show()
     
-rhs=mapset.make_rhs(todvec)
-x0=0*rhs
-x=cg.cg(x0,rhs,todvec,niter=100,plot=True)
+#rhs=mapset.make_rhs(todvec)
+#x0=0*rhs
+#x=cg.cg(x0,rhs,todvec,niter=100,plot=True)
