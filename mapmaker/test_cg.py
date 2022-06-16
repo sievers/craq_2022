@@ -16,8 +16,8 @@ def matgen(n=100,diag=10,maxeig=1):
 
 
 
-n=100 #pick a random matrix size
-A=matgen(n,diag=3) #generate a positive-definite matrix of this size
+n=1000 #pick a random matrix size
+A=matgen(n,diag=0.1) #generate a positive-definite matrix of this size
 b=np.random.randn(n) #pick a random rhs to Ax=b
 x0=0*b #this is a starting point - in the absence of a better guess, might as well be zero
 x=cg.cg(x0,b,A,niter=10) #try to solve our equation.

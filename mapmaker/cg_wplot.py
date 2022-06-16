@@ -4,7 +4,7 @@
 
 from matplotlib import pyplot as plt
 
-def cg(x0,b,A,niter=35,plot=False,pause_len=0.5):
+def cg(x0,b,A,niter=35,plot=False,pause_len=1.5):
     #get the everything set up
     x=x0.copy()
     r=b-A@x

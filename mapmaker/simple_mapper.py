@@ -312,7 +312,7 @@ mapset=Mapset([map])
 #but in real life you may need to put in some
 #effort here.
 fknee=10
-ind=-2
+ind=-2.0
 for tod in todvec.tods:
     white_guess=(np.mean(np.abs(np.diff(tod.data))))**2
     knee_guess=len(tod.data)/fknee/2
@@ -335,6 +335,6 @@ plt.clf()
 plt.imshow(mapset_raw.maps[0].map)
 plt.show()
     
-#rhs=mapset.make_rhs(todvec)
-#x0=0*rhs
-#x=cg.cg(x0,rhs,todvec,niter=100,plot=True)
+rhs=mapset.make_rhs(todvec)
+x0=0*rhs
+x=cg.cg(x0,rhs,todvec,niter=100,plot=False)
