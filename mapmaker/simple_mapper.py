@@ -13,6 +13,7 @@ except:
 
 #numba version of map2tod.  much faster than
 #equivalen python loop
+import numba as nb
 @nb.njit
 def map2tod_numba(x,y,map,data):
     n=len(x)
