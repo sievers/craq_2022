@@ -282,20 +282,10 @@ class Mapset:
             out.maps[i]=out.maps[i]-other.maps[i]
         return out
 
-#routine to generate a single timestream with white noise plus power-law
-#for the variance.
-def noise_gen(n,fknee,ind=-1):
-    x=np.random.randn(n)
-    xft=np.fft.rfft(x)
-    k=np.arange(len(xft))+0.5
-    knee=len(k)/fknee
-    #amp=1+(k/fknee)**ind
-    amp=1+(k/knee)**ind
-    xft=xft*np.sqrt(amp)
-    dat=np.fft.irfft(xft,n)
-    return dat
 
+#main program starts here
 
+#first, read in the data
 todvec=TodVec()
 ntod=2 #I happened to make 2 TODs for you to look at
 for i in range(ntod):
@@ -334,6 +324,7 @@ for tod in todvec.tods:
     print('noise params are ',tod.noise.params)
 
 
+#we'll start by making a naive map
 mapset_raw=mapset.copy()
 mapset_raw.clear()
 for tod in todvec.tods:
